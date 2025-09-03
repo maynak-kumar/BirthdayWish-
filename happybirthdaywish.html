@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./happybirthdaywish.css">
+  <title>Happy Birthday ❤️</title>
+</head>
+<body>
+  <section id="candle-screen" style="background:black;">
+    <div class="candle" id="candle">
+      <div class="flame" id="flame"></div>
+    </div>
+    <p style="color:white; margin-top:20px;">Click the candle 🔥 & make a wish! </p>
+  </section>
+
+  <section id="birthday-screen" style="display:none;">
+    <h1 class="birthday-text">Happy Birthday:) My Love ❤️</h1>
+    <h2 class="birthday-subtext"> The universe is here to elebrate your day!</h2>
+  </section>
+
+  <section id="photo-screen" style="display:none;">
+    <div class="photo-message">
+      <img src="./WhatsApp Image 2025-09-03 at 15.55.04.jpeg" alt="Her photo">
+      <p style="font-family: Parisienne;"><strong style="font-size:28px; font-family: cursive;">To the most beautiful soul,</strong><br>
+      You are the most beautiful girl I have ever laid eyes on and the most amazing person I have ever known.
+      Being with you feels like joy itself found a home in me.
+      One smile from you erases every sadness I carry.
+      You are so cute when you are playful and breathtaking when you are bold.
+      You are softness and strength wrapped in one soul.
+      With you life feels like a roller coaster I never want to get off.
+      You’re my peace, my thrill, my everything.</p>
+    </div>
+  </section>
+
+  <section id="life-screen" style="display:none;">
+    <div class="life-message" style="font-family: Segoe Script,sans-serif">
+      My love :) embrace life with courage and joy. Through every up and down, know you are deeply cherished and never alone. I will always walk beside you. I might be the moon but I glow only because of you, you are so close to my heart and this love will always help you move forward in life.💕 Today is your day and I want you to be happiest and enjoy this year with more enlightenment.
+    </div>
+  </section>
+
+  <audio id="bgMusic" src="https://cdn.pixabay.com/download/audio/2023/04/13/audio_82ec9df53c.mp3?filename=soft-romantic-piano-144998.mp3" loop></audio>
+
+  <script>
+    const candle = document.getElementById('candle');
+    const flame = document.getElementById('flame');
+    const candleScreen = document.getElementById('candle-screen');
+    const birthdayScreen = document.getElementById('birthday-screen');
+    const photoScreen = document.getElementById('photo-screen');
+    const lifeScreen = document.getElementById('life-screen');
+    const music = document.getElementById('bgMusic');
+
+    let clickCount = 0;
+
+    candle.addEventListener('click', () => {
+      clickCount++;
+      if (clickCount === 1) {
+        flame.style.display = 'block';
+        music.play();
+        candleScreen.style.background = "transparent";
+      } else if (clickCount === 2) {
+        candleScreen.style.display = "none";
+        birthdayScreen.style.display = "flex";
+        setTimeout(() => {
+          photoScreen.style.display = "flex";
+          lifeScreen.style.display = "flex";
+        }, 3500);
+      }
+    });
+
+    // Reveal life message on scroll
+    window.addEventListener("scroll", () => {
+      const lifeMessage = document.querySelector(".life-message");
+      const rect = lifeMessage.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        lifeMessage.classList.add("reveal");
+      }
+    });
+
+    // Floating particles
+    const symbols = ['❤️','💖','✨','🦋','🌟','💫','💕','🌸','🌺','🍨'];
+    for (let i = 0; i < 100; i++) {
+      const elem = document.createElement('div');
+      elem.className = 'floating';
+      elem.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+      elem.style.left = Math.random() * 100 + 'vw';
+      elem.style.fontSize = (20 + Math.random() * 30) + 'px';
+      elem.style.animationDuration = (15 + Math.random() * 10) + 's';
+      document.body.appendChild(elem);
+    }
+  </script>
+</body>
+</html>

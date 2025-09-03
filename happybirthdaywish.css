@@ -1,0 +1,225 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html { height: 100%; scroll-behavior: smooth; font-family: 'Poppins', sans-serif; }
+
+    /* Background gradient */
+    body {
+      background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fbc2eb, #df6c8a, #9759b3, #c64bd6, #cd627b);
+      background-size: 600% 600%;
+      animation: gradientShift 25s ease infinite;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Sections */
+    section {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Candle */
+    .candle {
+      width: 80px;
+      height: 200px;
+      background: #fff3b0;
+      border-radius: 8px;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255,255,200,0.6);
+    }
+
+    .flame {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      width: 30px;
+      height: 50px;
+      background: radial-gradient(circle, yellow 40%, orange 70%, transparent 80%);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      animation: flicker 1s infinite alternate;
+      display: none;
+    }
+
+    @keyframes flicker {
+      0% { transform: translateX(-50%) scale(1); opacity: 0.8; }
+      100% { transform: translateX(-50%) scale(1.2); opacity: 1; }
+    }
+
+    /* Happy Birthday Text */
+    .birthday-text {
+      font-size: 80px;
+      font-weight: bold;
+      font-family: cursive;
+      background: linear-gradient(45deg, #ff007f, #ff5f9e, #ff9ecb);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0;
+      animation: fadeIn 3s forwards;
+      text-shadow: 2px 2px 8px rgba(255,255,255,0.6);
+    }
+
+    @keyframes fadeIn { to { opacity: 1; } }
+    .birthday-subtext {
+  font-size: 26px;
+  font-weight: 600;
+  font-family: "Segoe Script", cursive;
+
+  /* Gentle gradient with higher contrast */
+  background: linear-gradient(90deg, #ffffff, #ffe6f2, #ffd6a5);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  opacity: 0;
+  transform: translateY(10px);
+  letter-spacing: 1.5px;
+
+  /* Animations */
+  animation: fadeInUp 6s ease forwards,
+             gradientShift 10s ease-in-out infinite;
+  
+  /* Very subtle shadow only for readability */
+  text-shadow: 0px 1px 6px rgba(0,0,0,0.15);
+}
+
+/* Fade in with soft upward motion */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gentle gradient flow */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+    /* Photo + message */
+    .photo-message {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 80px;
+      max-width: 1000px;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+
+    .photo-message img {
+      width: 400px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255,20,147,0.6);
+      animation: floatPic 4s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes floatPic {
+      from { transform: translateY(0px) rotate(-2deg); }
+      to { transform: translateY(-15px) rotate(2deg); }
+    }
+
+    .photo-message p {
+      max-width: 500px;
+      font-size: 1.2em;
+      color: #fff;
+      background: rgba(255,105,180,0.25);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255,20,147,0.4);
+    }
+
+    /* Life message */
+    .life-message {
+      font-size: 28px;
+      max-width: 900px;
+      color: #7b2c5c;
+      background: linear-gradient(135deg, rgba(255,182,193,0.9), rgba(221,160,221,0.9));
+      padding: 50px;
+      border-radius: 30px;
+      box-shadow: 0 0 50px rgba(255, 105, 180, 0.5),
+                  0 0 100px rgba(218, 112, 214, 0.4);
+      text-align: center;
+      line-height: 1.8;
+      animation: glowPulse 4s infinite alternate;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(8px);
+      transform: scale(0.9);
+      opacity: 0;
+      transition: all 1s ease-in-out;
+    }
+
+    /* Glow pulse effect */
+    @keyframes glowPulse {
+      from {
+        box-shadow: 0 0 20px rgba(255, 105, 180, 0.4),
+                    0 0 40px rgba(218, 112, 214, 0.3);
+      }
+      to {
+        box-shadow: 0 0 70px rgba(255, 105, 180, 0.7),
+                    0 0 120px rgba(218, 112, 214, 0.6);
+      }
+    }
+
+    /* Floating sparkles inside message */
+    .life-message::before,
+    .life-message::after {
+      content: '💖✨🌸🦋💕🌷💫💞🌺';
+      position: absolute;
+      font-size: 26px;
+      animation: floatAround 18s alternate-reverse infinite;
+      opacity: 0.6;
+    }
+
+    .life-message::after {
+      font-size: 32px;
+      animation-duration: 25s;
+    }
+
+    @keyframes floatAround {
+      0% { transform: translate(-50px, 60px) rotate(0deg); }
+      50% { transform: translate(80px, -100px) rotate(180deg); }
+      100% { transform: translate(-40px, 70px) rotate(360deg); }
+    }
+    .floating {
+  position: fixed; /* ✅ fixed so they float over the whole page */
+  bottom: -50px;   /* start just below viewport */
+  font-size: 24px;/* */
+  animation: floatUp alternate-reverse infinite;
+  opacity: 0.8;
+  z-index: 1;
+  pointer-events: none; /* ✅ so clicks don’t get blocked */
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-120vh); opacity: 0; }
+}
+
+
+    /* Reveal effect on scroll */
+    .reveal {
+      transform: scale(1);
+      opacity: 1;
+    }
