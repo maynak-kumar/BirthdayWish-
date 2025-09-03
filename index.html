@@ -38,7 +38,10 @@
     </div>
   </section>
 
-  <audio id="bgMusic" src="https://cdn.pixabay.com/download/audio/2023/04/13/audio_82ec9df53c.mp3?filename=soft-romantic-piano-144998.mp3" loop></audio>
+  <audio id="bg-music" autoplay loop>
+  <source src="./assets/music/She s Beautiful.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
   <script>
     const candle = document.getElementById('candle');
@@ -48,6 +51,10 @@
     const photoScreen = document.getElementById('photo-screen');
     const lifeScreen = document.getElementById('life-screen');
     const music = document.getElementById('bgMusic');
+    document.getElementById("candle").addEventListener("click", () => {
+    music.play().catch(err => console.log("Autoplay blocked:", err)); 
+  });
+
 
     let clickCount = 0;
 
@@ -90,4 +97,5 @@
   </script>
 </body>
 </html>
+
 
