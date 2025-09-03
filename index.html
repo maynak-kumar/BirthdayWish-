@@ -5,7 +5,12 @@
   <link rel="stylesheet" href="./index.css">
   <title>Happy Birthday ❤️</title>
 </head>
-<body>
+<body>  
+  <audio id="bg-music" autoplay loop>
+  <source src="./She s Beautiful.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
   <section id="candle-screen" style="background:black;">
     <div class="candle" id="candle">
       <div class="flame" id="flame"></div>
@@ -26,9 +31,9 @@
       Being with you feels like joy itself found a home in me.
       One smile from you erases every sadness I carry.
       You are so cute when you are playful and breathtaking when you are bold.
-      Your softness and strength wrapped in one soul.
-      With you life feels like a roller coaster and I never want to get off.
-      You're my peace, my thrill, my everything.</p>
+      You are softness and strength wrapped in one soul.
+      With you life feels like a roller coaster I never want to get off.
+      You’re my peace, my thrill, my everything.</p>
     </div>
   </section>
 
@@ -38,10 +43,7 @@
     </div>
   </section>
 
-  <audio id="bg-music" autoplay loop>
-  <source src="./She's Beautiful.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+  <audio id="bgMusic" src="https://cdn.pixabay.com/download/audio/2023/04/13/audio_82ec9df53c.mp3?filename=soft-romantic-piano-144998.mp3" loop></audio>
 
   <script>
     const candle = document.getElementById('candle');
@@ -51,10 +53,9 @@
     const photoScreen = document.getElementById('photo-screen');
     const lifeScreen = document.getElementById('life-screen');
     const music = document.getElementById('bgMusic');
-    document.getElementById("candle").addEventListener("click", () => {
+      document.getElementById("candle").addEventListener("click", () => {
     music.play().catch(err => console.log("Autoplay blocked:", err)); 
   });
-
 
     let clickCount = 0;
 
@@ -97,6 +98,3 @@
   </script>
 </body>
 </html>
-
-
-
